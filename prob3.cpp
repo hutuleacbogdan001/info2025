@@ -29,6 +29,13 @@ void afisare_matrice_adiacenta()
     }
 }
 
+int reset_memory()
+{
+    for (int i = 0; i < 100; i++) {
+        v[i] = 0;
+    }
+}
+
 void bfs(int start)
 {
     int i, k, st, dr;
@@ -58,6 +65,7 @@ void bfs(int start)
         // "Sterg" din coada
         st++;
     }
+    reset_memory();
 }
 
 void calc_grad()
@@ -88,13 +96,6 @@ int impar()
     return 0;
 }
 
-int reset_memory()
-{
-    for (int i = 0; i < 100; i++) {
-        v[i] = 0;
-    }
-}
-
 int main()
 {
     int x;
@@ -107,18 +108,14 @@ int main()
     bfs(x);*/
 
     cout << "Nodul cu gradul cel mai mare grad este " << grad_cmm() << " graful parcurs prin latime de la nodul acesta este: "; bfs(grad_cmm());
-    
-    // Resetez memoria vectorului vizitat
-    reset_memory();
 
     cout << "\nPrimul nod cu gradul impar este " << impar() << " graful parcurs prin latime de la nodul acesta este: "; bfs(impar());
-    reset_memory();
 
     cout << "\n\nBFS parcurs pe toate nodurile grafurile este: ";
     for(int i = 1; i <= n; i++)
     {
         cout << "\nPentru nodul " << i << " : ";
         bfs(i);
-        reset_memory();
     }
 }
+
