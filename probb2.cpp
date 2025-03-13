@@ -117,10 +117,6 @@ int main()
         dfs(start);
     else if (input == 2)
         bfs(start);
-
-    if (conexitate()) cout << "\nGraful este conex.\n";
-    else cout << "\nGraful nu este conex.\n";
-
     init_v();
     afisare_conexitate();
 
