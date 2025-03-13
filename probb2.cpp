@@ -74,13 +74,6 @@ void dfs(int start)
     }
 }
 
-int conexitate()
-{
-    for (int i = 1; i <= n; i++)
-        if (!v[i]) return 0;
-    return 1;
-}
-
 void afisare_conexitate()
 {
     int k = 0;
@@ -102,21 +95,6 @@ int main()
     citire_adiacenta();
     afisare_adiacenta();
 
-    cout << "Introduceti metoda de parcurgere pe care o doriti sa o folositi. \n1. DFS \n2. BFS \n";
-    cin >> input;
-    while (input != 1 && input != 2)
-    {
-        cout << "Introduceti valorea 1 pentru DFS respectiv 2 pentru BFS: ";
-        cin >> input;
-    }
-    cout << "Introduceti nodul de start pentru parcurgere: ";
-    cin >> start;
-
-    init_v();
-    if (input)
-        dfs(start);
-    else if (input == 2)
-        bfs(start);
     init_v();
     afisare_conexitate();
 
