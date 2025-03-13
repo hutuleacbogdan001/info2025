@@ -30,36 +30,6 @@ void afisare_adiacenta()
     }
 }
 
-int init_v()
-{
-    for (int i = 0; i < 100; i++)
-    {
-        v[i] = 0;
-    }
-}
-
-void bfs(int start)
-{
-    int i, k, st = 0, dr = 0;
-    x[1] = start;
-    v[start] = 1;
-
-    while (st <= dr)
-    {
-        k = x[st];
-        cout << k << " ";
-        for (int i = 1; i <= n; i++)
-        {
-            if (v[i] == 0 && a[k][i] == 1)
-            {
-                v[i] = 1;
-                x[++dr] = i;
-            }
-        }
-        st++;
-    }
-}
-
 void dfs(int start)
 {
     v[start] = 1;
@@ -91,11 +61,9 @@ void afisare_conexitate()
 
 int main()
 {
-    int input, start;
     citire_adiacenta();
     afisare_adiacenta();
 
-    init_v();
     afisare_conexitate();
 
     return 0;
